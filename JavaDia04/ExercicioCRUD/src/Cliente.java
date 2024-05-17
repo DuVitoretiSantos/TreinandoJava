@@ -30,7 +30,7 @@ public class Cliente {
        return possuiCupom;
    }
 
-   public void setNomeCliente(String nome){
+   public void setNomeCliente(String nomeCliente){
         this.nomeCliente = nomeCliente;
    }
    public void setCpf(long cpf){

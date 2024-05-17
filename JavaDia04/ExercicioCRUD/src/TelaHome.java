@@ -11,7 +11,7 @@ public class TelaHome extends JFrame {
     private JTextField logarCpf;
     private JButton logarSeButton;
     private JPanel produtosText;
-    private JTextField textField4;
+    private JTextField buscaUser;
     private JLabel bemVindoTxt;
     private JPanel cadastroLogin;
     private JPanel buyAndValues;
@@ -23,6 +23,8 @@ public class TelaHome extends JFrame {
     private JPanel divEditCliente;
     private JTextField editarNomeTxt;
     private JButton editarNomeButton;
+    private JButton buscarButton;
+    private JLabel userData;
 
     int idClient = -1;
     ArrayList<Cliente> clientes = new ArrayList<Cliente>();
@@ -44,6 +46,8 @@ public class TelaHome extends JFrame {
                 Cliente c = new Cliente(nome, cpfCliente);
                 clientes.add(c);
                 JOptionPane.showMessageDialog(null, "O cliente foi cadastrado!");
+                cadastroNomeTxt.setText("");
+                cadastroCpfTxt.setText("");
 
             }
         });
@@ -61,13 +65,15 @@ public class TelaHome extends JFrame {
                }
 
                if(cpfExiste){
-                   JOptionPane.showMessageDialog(null, "Usuario Logado!");
                    bemVindoTxt.setText("Cliente: " + clientes.get(idClient).getNomeCliente());
                    cadastroLogin.setVisible(false);
+                   logarCpf.setText("");
+                   userData.setText("");
                    buyAndValues.setVisible(true);
                    divPainelCliente.setVisible(true);
                }else {
                    JOptionPane.showMessageDialog(null, "Usuario não encontrado!");
+                   logarCpf.setText("");
                }
             }
         });
@@ -108,8 +114,29 @@ public class TelaHome extends JFrame {
                 bemVindoTxt.setText("Cliente: " + clientes.get(idClient).getNomeCliente());
                 JOptionPane.showMessageDialog(null, "seu nome foi editado!");
 
-                divEditCliente.setVisible(false);
 
+                divEditCliente.setVisible(false);
+                editarNomeTxt.setText("");
+
+            }
+        });
+
+        buscarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                boolean usuarioExiste = false;
+
+                for(int i = 0;i < clientes.size();i++){
+                    if(clientes.get(i).getNomeCliente().equals(buscaUser.getText())) {
+                        userData.setText("-------------   Nome: " + clientes.get(i).getNomeCliente() + "   /   CPF: " + clientes.get(i).getCpf() + "    -------------");
+                        usuarioExiste = true;
+                    }
+                }
+                if(!usuarioExiste){
+                    JOptionPane.showMessageDialog(null , "Usuario não encontrado!");
+                    buscaUser.setText("");
+                    userData.setText("");
+                }
             }
         });
     }

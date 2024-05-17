@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="container" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="5" vgap="5">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="8" width="1053" height="546"/>
+      <xy x="20" y="8" width="1053" height="570"/>
     </constraints>
     <properties>
       <background color="-14540254"/>
@@ -319,7 +319,7 @@
                   <text value="Deslogar-se"/>
                 </properties>
               </component>
-              <component id="c65d" class="javax.swing.JButton" binding="editarNome">
+              <component id="c65d" class="javax.swing.JButton" binding="editarButton">
                 <constraints>
                   <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -367,18 +367,10 @@
                 </constraints>
                 <properties>
                   <foreground color="-6779392"/>
-                  <text value="Nome:"/>
+                  <text value="Novo Nome:"/>
                 </properties>
               </component>
-              <component id="8d873" class="javax.swing.JTextField" binding="editarNomeTxt">
-                <constraints>
-                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
-                    <preferred-size width="150" height="-1"/>
-                  </grid>
-                </constraints>
-                <properties/>
-              </component>
-              <component id="4a0ee" class="javax.swing.JButton" binding="editarButton" default-binding="true">
+              <component id="4a0ee" class="javax.swing.JButton" binding="editarNomeButton">
                 <constraints>
                   <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
@@ -406,6 +398,16 @@
                 <border type="none"/>
                 <children/>
               </grid>
+              <component id="8d873" class="javax.swing.JTextField" binding="editarNomeTxt">
+                <constraints>
+                  <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value=""/>
+                </properties>
+              </component>
             </children>
           </grid>
         </children>

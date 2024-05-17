@@ -18,11 +18,11 @@ public class TelaHome extends JFrame {
     private JPanel divPainelCliente;
     private JButton deslogarButton;
     private JButton removerContaButton;
-    private JButton editarNome;
+    private JButton editarButton;
     private JButton soonButton;
     private JPanel divEditCliente;
     private JTextField editarNomeTxt;
-    private JButton editarButton;
+    private JButton editarNomeButton;
 
     int idClient = -1;
     ArrayList<Cliente> clientes = new ArrayList<Cliente>();
@@ -96,18 +96,20 @@ public class TelaHome extends JFrame {
         editarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 divEditCliente.setVisible(true);
             }
         });
-        editarButton.addActionListener(new ActionListener() {
+        editarNomeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String novoNome = editarNomeTxt.getText();
                 clientes.get(idClient).setNomeCliente(novoNome);
-                JOptionPane.showMessageDialog(null, "O nome foi editado!");
+                bemVindoTxt.setText("Cliente: " + clientes.get(idClient).getNomeCliente());
+                JOptionPane.showMessageDialog(null, "seu nome foi editado!");
 
                 divEditCliente.setVisible(false);
-                bemVindoTxt.setText("Cliente: " + clientes.get(idClient).getNomeCliente());
+
             }
         });
     }

@@ -1,7 +1,7 @@
 public class Imovel {
 
     private String endereco;
-    private String area;
+    private int area;
     private int numeroQuartos;
     private int id;
 
@@ -9,7 +9,7 @@ public class Imovel {
 
     private static boolean possuiDono = true;
 
-    public Imovel(String endereco,String area,int numeroQuartos, int id,boolean casaEmReforma){
+    public Imovel(String endereco,int area,int numeroQuartos, int id,boolean casaEmReforma){
         this.endereco = endereco;
         this.area = area;
         this.numeroQuartos = numeroQuartos;
@@ -25,10 +25,10 @@ public class Imovel {
         return endereco;
     }
 
-    public void setArea(String area){
+    public void setArea(int area){
         this.area = area;
     }
-    public String getArea(){
+    public int getArea(){
         return area;
     }
 
@@ -53,12 +53,9 @@ public class Imovel {
         return casaEmReforma;
     }
 
-     public void reformar(boolean casaEmReforma){
+     public void reformar()
+     {
         setCasaEmReforma(true);
-     }
-
-     public static boolean statusPossuiDono(){
-        return possuiDono;
      }
 
 

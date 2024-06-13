@@ -27,7 +27,7 @@ public class Main{
 
         String nomeJogador = JOptionPane.showInputDialog(null, "Digite seu nome");
 
-        Jogador j = new Jogador(nomeJogador, 1000000.00f);
+        Jogador j = new Jogador(nomeJogador, 10000.00f);
 
 
         // CIDADE DOS IMOVEIS ////////////////////
@@ -58,7 +58,11 @@ public class Main{
                 case 1:
 
                     casaLista = "ESCOLHA UMA CASA";
-                    imoveis.remove(imovel);
+                    for(int i = 0; i != imoveis.size();i++){
+                        imoveis.remove(imovel);
+                    }
+
+
                     for(int i = 0; i < 3; i++){
                         randomThings = (int) Math.floor(Math.random() * 6);
                         imovel.setEndereco(cidade.get(randomThings));
@@ -68,7 +72,7 @@ public class Main{
                         imovel.setNumeroQuartos(numQuartos+1);
                         imovel.setCasaEmReforma(false);
                         imovel.setId(imoveis.size()+1+i+1);
-                        float res = (int) Math.floor(Math.random() * 7895) * areaImovel * numQuartos;
+                        float res = (int) Math.floor(Math.random() * 7895) + 1 * areaImovel * numQuartos;
                         imovel.setPreco(res);
 
 
@@ -89,7 +93,7 @@ public class Main{
                         //    }
                         //}
                       imoveis.add(imovel);
-                        casaLista += "\n\nCASA " + i+0.1 +
+                        casaLista += "\n\nCASA " + (i + 1) +
                                 "-\n\nCidade: " + imovel.getEndereco() +
                                 "\nArea: " + imovel.getArea() +
                                 "\nNumero de quartos: " + imovel.getNumeroQuartos() +
@@ -98,6 +102,7 @@ public class Main{
 
 
                     }
+                    System.out.println(imoveis.size());
                     String[] opcoes = {"Casa 1", "Casa 2" , "Casa 3", "Retornar"};
                      casaEscolha = JOptionPane.showOptionDialog(null, casaLista,
                             "HOMESEARCH APP", JOptionPane.YES_OPTION, JOptionPane.PLAIN_MESSAGE, null, opcoes, "Escolher");
@@ -125,6 +130,7 @@ public class Main{
                     }
 
                      if(j.getSaldoDisponivel() <= 0){
+                         numEscolha = 0;
                          int msgEndGame = (int) Math.floor(Math.random() * 2);
                          if(msgEndGame == 0){
                              JOptionPane.showMessageDialog(null,"Infelizmente seu dinheiro acabou,assim peço carinhosamente: engole o choro e FAZ O L\n\n" + " END GAME");

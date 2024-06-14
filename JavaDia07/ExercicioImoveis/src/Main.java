@@ -66,32 +66,34 @@ public class Main{
                     for(int i = 0; i < 3; i++){
                         randomThings = (int) Math.floor(Math.random() * 6);
                         imovel.setEndereco(cidade.get(randomThings));
-                        int areaImovel = (int) Math.floor(Math.random() * 140);
-                        imovel.setArea(areaImovel+1);
-                        int numQuartos = (int) Math.floor(Math.random() * 4);
-                        imovel.setNumeroQuartos(numQuartos+1);
+                        int areaImovel = (int) Math.floor(Math.random() * (140 - 45) + 45);
+                        imovel.setArea(areaImovel);
+                        int numQuartos = (int) Math.floor(Math.random() * (4 - 1) + 1);
+                        imovel.setNumeroQuartos(numQuartos);
                         imovel.setCasaEmReforma(false);
-                        imovel.setId(imoveis.size()+1+i+1);
-                        float res = (int) Math.floor(Math.random() * 7895) + 1 * areaImovel * numQuartos;
+                        float res = (int) Math.floor(Math.random() * (7885 - 1) + 1) + 1 * areaImovel * numQuartos;
                         imovel.setPreco(res);
 
 
-                        // PERGUNTAR SOBRE NA PROXIMA AULA
-                        //for(Imovel m : imoveis){
-                        //    System.out.println("Cheguei AQUI!");
-                        //    randomId = (int) Math.floor(Math.random() * 1);
-                        //    if(m.getId() == randomId){
-                        //        idExiste = true;
-                        //        while(idExiste){
-                        //            if(m.getId() != randomId){
-                        //                idExiste = false; imovel.setId(randomId);
 
-                        //            }
-                        //        }
-                        //    }else{
-                        //        imovel.setId(randomId);
-                        //    }
-                        //}
+                       for(Imovel m : imoveis){
+                          System.out.println("Cheguei AQUI!");
+                          randomId = (int) Math.floor(Math.random() * (8888888 - 1) + 1);
+
+                           if(m.getId() == randomId){
+                              idExiste = true;
+                              while(idExiste){
+                                  if(m.getId() != randomId){
+                                      idExiste = false;
+                                      imovel.setId(randomId);
+
+                                  }
+                              }
+                          }else{
+                              imovel.setId(randomId);
+                          }
+                       }
+
                       imoveis.add(imovel);
                         casaLista += "\n\nCASA " + (i + 1) +
                                 "-\n\nCidade: " + imovel.getEndereco() +
@@ -133,7 +135,7 @@ public class Main{
                          numEscolha = 0;
                          int msgEndGame = (int) Math.floor(Math.random() * 2);
                          if(msgEndGame == 0){
-                             JOptionPane.showMessageDialog(null,"Infelizmente seu dinheiro acabou,assim peço carinhosamente: engole o choro e FAZ O L\n\n" + " END GAME");
+                             JOptionPane.showMessageDialog(null,"Infelizmente seu dinheiro acabou\n\n" + " END GAME");
                          }else if(msgEndGame == 1){
                              JOptionPane.showMessageDialog(null, "FALENCIA, infelizmente sua jornada acabou, da proxima vez saiba gerenciar seu dinheiro de uma melhor maneira!\n\n" + " END GAME");
                          }else if(msgEndGame == 2){
